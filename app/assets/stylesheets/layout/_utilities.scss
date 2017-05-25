@@ -10,6 +10,14 @@
   padding-bottom: 5em;
 }
 
+// Margins
+.margin-bottom{
+  margin-bottom: 30px;
+}
+.margin{
+  margin: 10px 0;
+}
+
 // Backgrounds
 .bg-black {
   background: #4a4a4a;
@@ -22,4 +30,22 @@
 }
 .bg-dark-blue {
   background: #3b5998;
+}
+
+// Wrapper
+.wrapper-grey{
+  background-color: rgba(250,250,250,0.4);
+  padding: 50px;
+  margin: 20px 50px;
+  border-radius: 10px;
+}
+.wrap{
+  background-color: rgb(250,250,250);
+  padding: 50px;
+  margin: 50px 300px;
+  border-radius: 10px;
+}
+// Fullscreen
+.full-screen {
+  min-height: calc(100vh - 150px)
 }

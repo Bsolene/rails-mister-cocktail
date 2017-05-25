@@ -1,1 +1,23 @@
-// Your footer style
+.background-brown{
+  background-color: black;
+  height: 80px;
+//  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.footer-content{
+  color: $brand-color;
+  font-size: 22px;
+  margin-left: 50px;
+}
+.footer-share{
+  ul { margin: 0;}
+  i {
+    margin-right: 20px;
+    color: white;
+  }
+}
+
