@@ -1,29 +1,90 @@
 
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('');">
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= cl_image_path @cocktail.photo.path, height: 100, width: 200, crop: :fill %>');">
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-6">
-        <div class="banner-content wrapper-grey">
-          <h1 class="margin-bottom"><%= @cocktail.name %></h1>
-          <ul class="list-unstyled">
-            <% @cocktail.doses.each do |dose| %>
-              <li class="margin"><%= dose.description %> <%= dose.ingredient.name %> |
-                <%= link_to 'Delete a dose', dose_path(dose), method: :delete, class: 'btn btn-danger btn-xs' %>
-              </li>
+        <div class="flex">
+
+          <div class="banner-content wrapper-grey">
+            <h1 class="margin-bottom"><%= @cocktail.name %></h1>
+            <ul class="list-unstyled">
+              <% @cocktail.doses.each do |dose| %>
+                <li class="margin"><%= dose.description %> of <%= dose.ingredient.name %>
+                  <%= link_to dose_path(dose), method: :delete do %>
+                    <i class="fa fa-times-circle"></i>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+
+          <div class="banner-content wrapper-grey-rating">
+            <h4>Reviews</h4>
+            <% @cocktail.reviews.each do |review| %>
+            <% if review.rating == 0 %>
+              <i class="fa fa-star" style="color: lightgray"></i>
+              <i class="fa fa-star" style="color: lightgray"></i>
+              <i class="fa fa-star" style="color: lightgray"></i>
+              <i class="fa fa-star" style="color: lightgray"></i>
+              <i class="fa fa-star" style="color: lightgray"></i>
+              <% elsif review.rating == 1 %>
+              <i class="fa fa-star" style="color: orange"></i>
+              <i class="fa fa-star" style="color: lightgray"></i>
+              <i class="fa fa-star" style="color: lightgray"></i>
+              <i class="fa fa-star" style="color: lightgray"></i>
+              <i class="fa fa-star" style="color: lightgray"></i>
+            <% elsif review.rating == 2 %>
+              <i class="fa fa-star" style="color: orange"></i>
+              <i class="fa fa-star" style="color: orange"></i>
+              <i class="fa fa-star" style="color: lightgray"></i>
+              <i class="fa fa-star" style="color: lightgray"></i>
+              <i class="fa fa-star" style="color: lightgray"></i>
+            <% elsif review.rating == 3 %>
+              <i class="fa fa-star" style="color: orange"></i>
+              <i class="fa fa-star" style="color: orange"></i>
+              <i class="fa fa-star" style="color: orange"></i>
+              <i class="fa fa-star" style="color: lightgray"></i>
+              <i class="fa fa-star" style="color: lightgray"></i>
+            <% elsif review.rating == 4 %>
+              <i class="fa fa-star" style="color: orange"></i>
+              <i class="fa fa-star" style="color: orange"></i>
+              <i class="fa fa-star" style="color: orange"></i>
+              <i class="fa fa-star" style="color: orange"></i>
+              <i class="fa fa-star" style="color: lightgray"></i>
+            <% elsif review.rating == 5 %>
+              <i class="fa fa-star" style="color: orange"></i>
+              <i class="fa fa-star" style="color: orange"></i>
+              <i class="fa fa-star" style="color: orange"></i>
+              <i class="fa fa-star" style="color: orange"></i>
+              <i class="fa fa-star" style="color: orange"></i>
             <% end %>
-          </ul>
-          <%= link_to 'Back Home', cocktails_path, class: 'btn btn-success' %>
+              <hr>
+            <% end %>
+          </div>
         </div>
       </div>
 
       <div class="col-xs-12 col-sm-6">
-        <h3 class="text-center">Add a new dose</h3>
+       <div class="flex">
+
         <div class="wrap-dose">
+          <h4 class="text-center">Add a new dose</h4>
           <%= simple_form_for [@cocktail, @dose] do |f| %>
             <%= f.input :description %>
             <%= f.input :ingredient_id, collection: Ingredient.all.order(:name) %>
             <%= f.button :submit %>
           <% end %>
+        </div>
+
+        <div class="wrap-rating">
+          <h4 class="text-center">Add a review</h4>
+
+            <%= simple_form_for [@cocktail, @review] do |f| %>
+            <%= f.collection_radio_buttons :rating, [[0], [1], [2], [3], [4], [5]], :first, :last %>
+            <%= f.button :submit %>
+          <% end %>
+
+          </div>
         </div>
       </div>
     </div>

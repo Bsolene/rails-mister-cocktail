@@ -39,7 +39,13 @@
 .wrapper-grey{
   background-color: rgba(250,250,250,0.4);
   padding: 50px;
-  margin: auto 50px;
+  margin: 20px 50px;
+  border-radius: 10px;
+}
+.wrapper-grey-rating{
+  background-color: rgba(250,250,250,0.4);
+  padding: 20px 50px;
+  margin: 20px 50px;
   border-radius: 10px;
 }
 .wrap{
@@ -50,12 +56,40 @@
 }
 .wrap-dose{
   background-color: rgb(250,250,250);
-  padding: 50px;
-  margin: 50px 50px;
+  padding: 20px 30px 30px 30px;
+  margin: 60px 70px 10px 70px;
+  border-radius: 10px;
+  color:black;
+  h4{}
+}
+.wrap-rating{
+  background-color: rgb(250,250,250);
+  padding: 10px 30px 30px 30px;
+  margin: 20px 70px 60px 70px;
   border-radius: 10px;
   color:black;
 }
+
 // Fullscreen
 .full-screen {
   min-height: calc(100vh - 150px)
+}
+
+// Flexbox
+.flex{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+//FontAwsome
+i{
+  color: $brand-color;
+}
+
+hr{
+  margin: 5px auto;
+  width: 50%;
+
 }
