@@ -1,24 +1,28 @@
-# README
+# Mister Cocktail
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#### Technologies: Rails, Ruby
+Hosted on Heroku
 
-Things you may want to cover:
+[Mister Cocktail](https://mr-cocktail-bsolene.herokuapp.com/)
 
-* Ruby version
+## User Stories
 
-* System dependencies
+```
+As a user,
+I can create a cocktail
+```
 
-* Configuration
+```
+As a user,
+I can add a new dose for a cocktail
+```
 
-* Database creation
+```
+As a user,
+I can delete a dose for a cocktail
+```
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+As a user,
+I can add a review for a cocktail
+```
